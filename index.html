@@ -5,261 +5,462 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>修車工｜台北新北預約制汽車維修保養</title>
-<meta name="description" content="原廠出身，歐系車維修經驗12年以上。台北新北預約制汽車維修與保養服務。">
+<meta name="description" content="原廠出身，歐系車維修經驗12年以上。台北新北預約制汽車維修、保養、異音查修與改裝評估。">
 
 <style>
 :root{
-  --blue:#0f172a;
-  --blue2:#1e3a8a;
-  --light:#f8fafc;
+  --bg:#0b1220;
+  --blue:#1e3a8a;         /* 主藍 */
+  --blue2:#2563eb;        /* 亮藍 */
+  --light:#f8fafc;        /* 幾乎白 */
   --card:#ffffff;
   --text:#0f172a;
   --muted:#475569;
+  --line:#e2e8f0;
+  --shadow:0 10px 26px rgba(0,0,0,.12);
+  --radius:14px;
 }
 
+*{box-sizing:border-box}
 body{
   margin:0;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif;
-  background:var(--blue);
+  background:var(--bg);
   color:var(--light);
-  line-height:1.6;
+  line-height:1.65;
 }
 
-/* 導覽列 */
+a{color:inherit; text-decoration:none}
+
 nav{
-  background:#0b1220;
-  padding:15px 20px;
+  position:sticky; top:0; z-index:10;
+  background:rgba(11,18,32,.78);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(226,232,240,.12);
+  padding:14px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
-nav h1{
-  margin:0;
-  font-size:18px;
+nav .brand{
+  display:flex; align-items:center; gap:10px;
+  font-weight:900;
 }
-
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:20px;
-  font-weight:bold;
+nav .logo{
+  width:34px; height:34px; border-radius:12px;
+  display:grid; place-items:center;
+  background:linear-gradient(135deg, rgba(37,99,235,.35), rgba(30,58,138,.55));
+  border:1px solid rgba(255,255,255,.16);
 }
+nav .links a{
+  margin-left:18px;
+  font-weight:800;
+  color:rgba(248,250,252,.86);
+}
+nav .links a:hover{opacity:.9}
 
-/* Hero */
 .hero{
-  padding:70px 20px;
-  background:linear-gradient(135deg,var(--blue2),#1e40af);
+  padding:56px 18px 34px;
   text-align:center;
+  background:
+    radial-gradient(900px 420px at 20% 0%, rgba(37,99,235,.18), transparent 60%),
+    radial-gradient(820px 460px at 85% 10%, rgba(30,58,138,.22), transparent 60%),
+    linear-gradient(135deg, rgba(30,58,138,.92), rgba(11,18,32,.92));
+  border-bottom:1px solid rgba(226,232,240,.12);
 }
 
-.hero h2{
-  font-size:36px;
-  margin-bottom:10px;
+.hero h1{
+  margin:0 0 10px;
+  font-size:clamp(26px, 3.4vw, 40px);
+  letter-spacing:-.5px;
 }
-
 .hero p{
-  font-size:18px;
-  opacity:0.9;
+  margin:0 auto 18px;
+  max-width:60ch;
+  color:rgba(248,250,252,.86);
+  font-size:16px;
+}
+
+.cta-row{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin:18px 0 12px;
 }
 
 .btn{
-  display:inline-block;
-  margin:20px 10px 0 10px;
-  padding:14px 24px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 20px;
+  border-radius:12px;
+  font-weight:900;
+  border:1px solid transparent;
+  min-width: 190px;
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  transition: transform .12s ease, opacity .12s ease;
 }
+.btn:hover{transform: translateY(-1px); opacity:.96}
 
-.btn-line{
-  background:#22c55e;
-  color:#000;
-}
-
-.btn-call{
-  background:#ef4444;
+.btn-messenger{
+  background: linear-gradient(135deg, var(--blue2), var(--blue));
   color:#fff;
 }
+.btn-call{
+  background: rgba(255,255,255,.96);
+  color: var(--blue);
+  border-color: rgba(37,99,235,.25);
+}
 
-/* 信任數字區 */
+.hero .quote{
+  margin-top:14px;
+  font-weight:900;
+  font-size:18px;
+  color:rgba(248,250,252,.92);
+}
+
+/* 信任數字 */
 .stats{
-  display:flex;
-  justify-content:center;
-  gap:60px;
-  padding:50px 20px;
   background:#e2e8f0;
   color:var(--text);
+  padding:34px 18px;
+}
+.stats-inner{
+  max-width:1000px; margin:0 auto;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:16px;
   text-align:center;
 }
-
-.stat h3{
-  margin:0;
-  font-size:34px;
-  color:var(--blue2);
+.stat{
+  background:#fff;
+  border-radius:var(--radius);
+  padding:18px 14px;
+  box-shadow: var(--shadow);
+}
+.stat .big{
+  font-size:30px;
+  font-weight:1000;
+  color:var(--blue);
+  line-height:1.1;
+}
+.stat .small{
+  margin-top:6px;
+  font-weight:900;
+  color:var(--muted);
 }
 
-.stat p{
-  margin:5px 0 0 0;
-  font-weight:bold;
-}
-
-/* 服務區 */
+/* 內容區 */
 .section{
   background:var(--light);
   color:var(--text);
-  padding:60px 20px;
+  padding:54px 18px;
 }
-
-.section h3{
+.section h2{
+  margin:0 0 10px;
   text-align:center;
-  margin-bottom:40px;
   font-size:26px;
+  letter-spacing:-.2px;
+}
+.section .sub{
+  margin:0 auto 28px;
+  text-align:center;
+  max-width:70ch;
+  color:var(--muted);
+  font-weight:700;
 }
 
+/* 服務卡：桌機 4 欄，平板/手機自動 2x2、1x4 */
 .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
   max-width:1000px;
-  margin:auto;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:16px;
 }
-
 .card{
-  background:#fff;
-  padding:25px;
-  border-radius:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:18px;
+  border:1px solid var(--line);
+}
+.card-top{
+  display:flex; align-items:center; gap:12px;
+  margin-bottom:10px;
+}
+.icon{
+  width:46px; height:46px;
+  border-radius:14px;
+  display:grid; place-items:center;
+  background: rgba(37,99,235,.10);
+  border:1px solid rgba(37,99,235,.16);
+}
+.card h3{
+  margin:0;
+  font-size:16px;
+  color:var(--blue);
+}
+.card p{
+  margin:8px 0 0;
+  color:var(--muted);
+  font-weight:600;
+  font-size:14px;
 }
 
-.card h4{
-  margin-top:0;
-  color:var(--blue2);
+/* 聯絡區（最下方 CTA 再出現一次） */
+.contact{
+  background:#e2e8f0;
+  color:var(--text);
+  padding:54px 18px 72px;
 }
+.contact-inner{
+  max-width:1000px;
+  margin:0 auto;
+  background:#fff;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:22px;
+  border:1px solid var(--line);
+}
+.contact-inner h2{margin:0 0 6px; text-align:left}
+.contact-inner p{margin:0; color:var(--muted); font-weight:700}
+.contact-actions{
+  margin-top:16px;
+  display:flex; gap:12px; flex-wrap:wrap;
+}
+.contact .btn{box-shadow:none}
 
 /* 社群 icon */
 .social{
-  text-align:center;
-  padding:40px 20px;
-  background:#f1f5f9;
+  margin-top:18px;
+  display:flex;
+  gap:14px;
+  align-items:center;
 }
-
-.social h4{
-  margin-bottom:20px;
-}
-
 .social a{
-  margin:0 15px;
-  display:inline-block;
+  display:inline-flex;
+  width:40px; height:40px;
+  border-radius:12px;
+  justify-content:center;
+  align-items:center;
+  border:1px solid rgba(37,99,235,.18);
+  background: rgba(37,99,235,.06);
 }
-
-.social svg{
-  width:34px;
-  height:34px;
-  fill:#1e3a8a;
-  transition:0.3s;
-}
-
-.social svg:hover{
-  fill:#2563eb;
-}
+.social svg{width:22px; height:22px; fill: var(--blue)}
+.social a:hover{background: rgba(37,99,235,.10)}
 
 /* Footer */
 .footer{
   background:#0b1220;
+  color:rgba(248,250,252,.75);
   text-align:center;
-  padding:30px;
-  font-size:14px;
+  padding:22px 18px;
+  font-size:13px;
+  border-top:1px solid rgba(226,232,240,.12);
+}
+
+/* RWD */
+@media (max-width: 980px){
+  .cards{grid-template-columns: repeat(2, 1fr);}   /* 兩列 */
+  .stats-inner{grid-template-columns: 1fr;}       /* 手機更好看 */
+}
+@media (max-width: 520px){
+  .btn{min-width: 100%;}
+  .cards{grid-template-columns: 1fr;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- ✅ 改這裡就好 -->
+<script>
+  const CONFIG = {
+    phoneDisplay: "0986-045-765",
+    phoneDial: "0986045765",
+    messengerUrl: "https://m.me/Mechanicfu",
+    igUrl: "https://instagram.com/@mechanic_fu",
+    fbUrl: "https://facebook.com/Mechanicfu",
+    serviceArea: "台北市｜新北市"
+  };
+</script>
+
 <nav>
-  <h1>修車工 FUCAR</h1>
-  <div>
+  <div class="brand">
+    <div class="logo">車</div>
+    <div>
+      <div style="line-height:1.1;">修車工 FUCAR</div>
+      <div style="font-size:12px; font-weight:800; color:rgba(248,250,252,.72);">預約制｜透明溝通｜安全工法</div>
+    </div>
+  </div>
+  <div class="links">
     <a href="#services">服務項目</a>
     <a href="#contact">聯絡</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h2>原廠出身｜歐系車維修經驗 12+ 年</h2>
-  <p>預約制專業維修與保養，重視安全、透明溝通與信任。</p>
-  <a href="https://m.me/Mechanicfu" class="btn btn-line">
-  💬 立即 Messenger 聯絡</a>
-  <a href="tel:0986045765" class="btn btn-call">📞 立即致電</a>
-  <p style="margin-top:20px;font-weight:bold;">「您的愛車問題，我的專業幫你解決！」</p>
+  <h1>預約制專業維修與保養<br>重視安全、透明溝通與信任</h1>
+  <p>原廠出身，歐系車維修經驗 12+ 年。先了解需求與車況，再安排處理方式，讓你放心把車交給我。</p>
+
+  <!-- ✅ CTA 置中 -->
+  <div class="cta-row">
+    <a id="btnMsgHero" class="btn btn-messenger" href="#" rel="noopener">💬 Messenger 聯絡</a>
+    <a id="btnCallHero" class="btn btn-call" href="#" rel="noopener">📞 立即致電</a>
+  </div>
+
+  <div class="quote">「您的愛車問題，我的專業幫你解決！」</div>
 </section>
 
 <section class="stats">
-  <div class="stat">
-    <h3>12+</h3>
-    <p>年維修經驗</p>
-  </div>
-  <div class="stat">
-    <h3>原廠</h3>
-    <p>體系背景</p>
-  </div>
-  <div class="stat">
-    <h3>預約制</h3>
-    <p>安心服務</p>
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="big">12+</div>
+      <div class="small">年維修經驗</div>
+    </div>
+    <div class="stat">
+      <div class="big">原廠</div>
+      <div class="small">體系背景</div>
+    </div>
+    <div class="stat">
+      <div class="big">預約制</div>
+      <div class="small">安心服務</div>
+    </div>
   </div>
 </section>
 
 <section class="section" id="services">
-  <h3>服務項目</h3>
+  <h2>服務項目</h2>
+  <p class="sub">只放你真正提供的服務內容。清楚、專業、好理解。</p>
+
   <div class="cards">
+    <!-- 1 -->
     <div class="card">
-      <h4>汽車維修</h4>
-      <p>積碳清洗、冷氣維修、漏油處理、引擎亮燈等故障排除。</p>
+      <div class="card-top">
+        <div class="icon" aria-hidden="true">
+          <!-- wrench icon -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a4 4 0 0 0-5.6 5.6l-6 6a2 2 0 1 0 2.8 2.8l6-6a4 4 0 0 0 5.6-5.6l-3 3-2.8-2.8 3-3z"/>
+          </svg>
+        </div>
+        <div>
+          <h3>汽車維修</h3>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">常見故障排除</div>
+        </div>
+      </div>
+      <p>積碳清洗、冷氣維修、漏油處理、引擎亮燈等。</p>
     </div>
+
+    <!-- 2 -->
     <div class="card">
-      <h4>汽車保養</h4>
-      <p>定期保養與車況檢查，維持車輛最佳狀態。</p>
+      <div class="card-top">
+        <div class="icon" aria-hidden="true">
+          <!-- oil drop -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2s6 7 6 12a6 6 0 1 1-12 0c0-5 6-12 6-12z"/>
+          </svg>
+        </div>
+        <div>
+          <h3>汽車保養</h3>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">定期檢查耗材</div>
+        </div>
+      </div>
+      <p>定期保養與車況確認，讓車輛維持最佳狀態。</p>
     </div>
+
+    <!-- 3 -->
     <div class="card">
-      <h4>異常聲音查修</h4>
-      <p>專業檢測與定位底盤或引擎異音問題。</p>
+      <div class="card-top">
+        <div class="icon" aria-hidden="true">
+          <!-- sound wave -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10v4"/>
+            <path d="M7 8v8"/>
+            <path d="M11 6v12"/>
+            <path d="M15 8v8"/>
+            <path d="M19 10v4"/>
+          </svg>
+        </div>
+        <div>
+          <h3>異常聲音查修</h3>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">定位異音來源</div>
+        </div>
+      </div>
+      <p>專業檢測與修復異音問題，避免冤枉路。</p>
     </div>
+
+    <!-- 4 -->
     <div class="card">
-      <h4>汽車改裝（需先溝通）</h4>
-      <p>性能改裝與需求評估，重視安全與合法性。</p>
+      <div class="card-top">
+        <div class="icon" aria-hidden="true">
+          <!-- gauge -->
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#1e3a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 13a8 8 0 1 0-16 0"/>
+            <path d="M12 13l3-3"/>
+            <path d="M6 13h.01"/>
+            <path d="M18 13h.01"/>
+          </svg>
+        </div>
+        <div>
+          <h3>汽車改裝（需先溝通）</h3>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">安全與需求優先</div>
+        </div>
+      </div>
+      <p>提供性能改裝評估與建議，先談清楚再動手。</p>
     </div>
   </div>
 </section>
 
-<section class="social">
-  <h4>🔧 更多維修案例與施工紀錄</h4>
-  <p>歡迎前往社群查看最新分享</p>
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <h2>聯絡方式</h2>
+    <p>服務範圍：<span id="areaText"></span>｜電話：<strong id="phoneText"></strong></p>
 
-  <a href="https://instagram.com/你的帳號" target="_blank">
-    <svg viewBox="0 0 24 24">
-      <path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7zm10 2c2 0 3 1 3 3v10c0 2-1 3-3 3H7c-2 0-3-1-3-3V7c0-2 1-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10z"/>
-    </svg>
-  </a>
+    <!-- ✅ 最下方再出現一次 CTA -->
+    <div class="contact-actions">
+      <a id="btnMsgBottom" class="btn btn-messenger" href="#" rel="noopener">💬 Messenger 聯絡</a>
+      <a id="btnCallBottom" class="btn btn-call" href="#" rel="noopener">📞 立即致電</a>
+    </div>
 
-  <a href="https://facebook.com/你的帳號" target="_blank">
-    <svg viewBox="0 0 24 24">
-      <path d="M22 12a10 10 0 10-11.6 9.9v-7H7v-3h3.4V9c0-3 1.8-4.6 4.4-4.6 1.3 0 2.6.2 2.6.2v3H16c-1.5 0-2 1-2 2v2.4h3.3l-.5 3H14v7A10 10 0 0022 12z"/>
-    </svg>
-  </a>
+    <div class="social" aria-label="社群連結">
+      <div style="font-weight:900; color:var(--muted);">更多案例：</div>
 
-</section>
+      <!-- IG -->
+      <a id="igLink" href="#" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm4.5-2.75a1 1 0 100 2 1 1 0 000-2z"/></svg>
+      </a>
 
-<section class="section" id="contact" style="background:#e2e8f0;">
-  <h3>聯絡方式</h3>
-  <p style="text-align:center;font-size:18px;">
-    服務範圍：台北市｜新北市<br>
-    電話：0986045765
-  
-  </p
+      <!-- FB -->
+      <a id="fbLink" href="#" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.63 9.87v-6.99H7.9V12h2.47V9.8c0-2.44 1.46-3.79 3.7-3.79 1.07 0 2.19.19 2.19.19v2.4h-1.23c-1.21 0-1.59.75-1.59 1.52V12h2.7l-.43 2.88h-2.27v6.99A10 10 0 0022 12z"/></svg>
+      </a>
+    </div>
+  </div>
 </section>
 
 <div class="footer">
 © 2025 修車工 FUCAR｜預約制汽車維修保養
 </div>
+
+<script>
+  // inject config
+  const telHref = `tel:${CONFIG.phoneDial}`;
+  document.getElementById("btnMsgHero").href = CONFIG.messengerUrl;
+  document.getElementById("btnMsgBottom").href = CONFIG.messengerUrl;
+
+  document.getElementById("btnCallHero").href = telHref;
+  document.getElementById("btnCallBottom").href = telHref;
+
+  document.getElementById("phoneText").textContent = CONFIG.phoneDisplay;
+  document.getElementById("areaText").textContent = CONFIG.serviceArea;
+
+  document.getElementById("igLink").href = CONFIG.igUrl;
+  document.getElementById("fbLink").href = CONFIG.fbUrl;
+</script>
 
 </body>
 </html>
